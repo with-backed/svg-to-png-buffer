@@ -2,7 +2,7 @@ import Chromium from "chrome-aws-lambda";
 import { VercelRequest, VercelResponse } from "@vercel/node";
 import nodeHtmlToImage from "node-html-to-image";
 
-export async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function (req: VercelRequest, res: VercelResponse) {
   res.status(200).json({ message: "hi" });
   return;
   if (req.method != "POST") {
