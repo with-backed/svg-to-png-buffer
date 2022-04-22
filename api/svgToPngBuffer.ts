@@ -1,4 +1,4 @@
-import Chromium, { puppeteer } from "chrome-aws-lambda";
+import puppeteer from "puppeteer";
 import { VercelRequest, VercelResponse } from "@vercel/node";
 import nodeHtmlToImage from "node-html-to-image";
 
