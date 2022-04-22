@@ -35,9 +35,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       quality: 100,
       type: "png",
       puppeteerArgs: {
-        args: [...Chromium.args, "--hide-scrollbars", "--disable-web-security"],
-        defaultViewport: Chromium.defaultViewport,
-        executablePath: await Chromium.executablePath,
+        args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
+        defaultViewport: chrome.defaultViewport,
+        executablePath: await chrome.executablePath,
         headless: true,
         ignoreHTTPSErrors: true,
       },
