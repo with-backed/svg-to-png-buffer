@@ -8,8 +8,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     return;
   }
 
+  console.log("we here");
+
   try {
     const { svg } = req.body;
+    console.log({ svg });
     const pngBuffer = (await nodeHtmlToImage({
       html: `<html><body><img src="${svg}" width="100%" height="auto" /></body></html>`,
       quality: 100,
@@ -23,6 +26,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       },
       encoding: "base64",
     })) as string;
+    console.log({ pngBuffer });
 
     res.status(200).json({ pngBuffer });
   } catch (e) {
