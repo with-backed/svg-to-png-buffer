@@ -13,22 +13,21 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   try {
     const { svg } = req.body;
     console.log({ svg });
-    const pngBuffer = (await nodeHtmlToImage({
-      html: `<html><body><img src="${svg}" width="100%" height="auto" /></body></html>`,
-      quality: 100,
-      type: "png",
-      puppeteerArgs: {
-        args: [...Chromium.args, "--hide-scrollbars", "--disable-web-security"],
-        defaultViewport: Chromium.defaultViewport,
-        executablePath: await Chromium.executablePath,
-        headless: true,
-        ignoreHTTPSErrors: true,
-      },
-      encoding: "base64",
-    })) as string;
-    console.log({ pngBuffer });
+    // const pngBuffer = (await nodeHtmlToImage({
+    //   html: `<html><body><img src="${svg}" width="100%" height="auto" /></body></html>`,
+    //   quality: 100,
+    //   type: "png",
+    //   puppeteerArgs: {
+    //     args: [...Chromium.args, "--hide-scrollbars", "--disable-web-security"],
+    //     defaultViewport: Chromium.defaultViewport,
+    //     executablePath: await Chromium.executablePath,
+    //     headless: true,
+    //     ignoreHTTPSErrors: true,
+    //   },
+    //   encoding: "base64",
+    // })) as string;
 
-    res.status(200).json({ pngBuffer });
+    res.status(200).json({ message: "hi" });
   } catch (e) {
     res.status(404);
   }
