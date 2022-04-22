@@ -44,7 +44,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       encoding: "base64",
     })) as string;
 
-    res.status(200).json({ message: pngBuffer });
+    res.status(200).json({ pngBuffer });
   } catch (e) {
     res.status(404);
   }
