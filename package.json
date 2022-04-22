@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "chrome-aws-lambda": "10.1.0",
+    "node-html-to-image": "^3.2.4",
     "puppeteer-core": "13.6.0"
   }
 }
