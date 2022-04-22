@@ -1,4 +1,4 @@
-import Chromium from "chrome-aws-lambda";
+import Chromium, { puppeteer } from "chrome-aws-lambda";
 import { VercelRequest, VercelResponse } from "@vercel/node";
 import nodeHtmlToImage from "node-html-to-image";
 
@@ -12,7 +12,15 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   try {
     const { svg } = req.body;
-    console.log({ svg });
+    const html = `<html><body><img src="${svg}" width="100%" height="auto" /></body></html>`;
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+
+    await page.setContent(html);
+
+    const content = await page.$("body");
+    const imageBuffer = await content.screenshot({ omitBackground: true });
     // const pngBuffer = (await nodeHtmlToImage({
     //   html: `<html><body><img src="${svg}" width="100%" height="auto" /></body></html>`,
     //   quality: 100,
@@ -27,7 +35,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     //   encoding: "base64",
     // })) as string;
 
-    res.status(200).json({ message: "hi" });
+    res.status(200).json({ message: imageBuffer });
   } catch (e) {
     res.status(404);
   }
