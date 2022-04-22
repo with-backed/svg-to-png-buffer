@@ -1,0 +1,13 @@
+{
+  "name": "svg-to-png-buffer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@vercel/node": "^1.14.1"
+  },
+  "dependencies": {
+    "chrome-aws-lambda": "2.1.1",
+    "node-html-to-image": "3.2.4"
+  }
+}
