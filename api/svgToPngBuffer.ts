@@ -3,8 +3,6 @@ import { VercelRequest, VercelResponse } from "@vercel/node";
 import nodeHtmlToImage from "node-html-to-image";
 
 export default async function (req: VercelRequest, res: VercelResponse) {
-  res.status(200).json({ message: "hi" });
-  return;
   if (req.method != "POST") {
     res.status(405).send("Only POST requests allowed");
     return;
