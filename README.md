@@ -11,7 +11,7 @@ curl --location --request POST 'https://svg-to-png-buffer-backed.vercel.app/api/
 }'
 `
 
-Return response looks like:
+Response looks like:
 `
 {
     pngBuffer: <base-64-png-here>
