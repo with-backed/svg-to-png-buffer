@@ -14,7 +14,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
     const pngBuffer = (await nodeHtmlToImage({
       html: `<html><body><img src="${svg}" width="100%" height="auto" /></body></html>`,
-      quality: 100,
+      quality: 50,
       type: "png",
       puppeteerArgs: {
         args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
