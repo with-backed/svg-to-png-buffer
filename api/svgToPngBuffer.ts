@@ -13,7 +13,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const { svg } = req.body;
 
     const pngBuffer = (await nodeHtmlToImage({
-      html: `<html><body><img src="${svg}" width="100%" height="auto" /></body></html>`,
+      html: `<img src="${svg}" />`,
       quality: 10,
       type: "jpeg",
       puppeteerArgs: {
